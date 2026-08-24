@@ -27,7 +27,6 @@ export class LoadingScene extends Scene {
   }
 
   public render(): void {
-    const renderer = this.sceneManager.getGame().getSceneManager().getGame().getConfig();
     console.log(`LoadingScene: rendering progress ${this.loadProgress}%`);
   }
 }
