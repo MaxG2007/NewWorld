@@ -1,4 +1,4 @@
-import { GameConfig } from './GameConfig';
+import { GameConfig } from '../core/GameConfig';
 
 /**
  * Main renderer using Phaser 3

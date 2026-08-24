@@ -1,50 +1,76 @@
-```
+```gitignore
 # Dependencies
 node_modules/
 
 # Build artifacts
 dist/
 build/
-coverage/
-htmlcov/
-.nyc_output/
-.vitest/
+target/
+
+# TypeScript/JavaScript specific
+*.js.map
+*.tsbuildinfo
+.cache/
 
 # Environment variables
 .env
 .env.local
-.env.*
-
-# IDE and editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
+*.env.*
 
 # Logs
 *.log
 
-# OS specific
+# Coverage reports
+coverage/
+.nyc_output/
+istanbul/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
 .DS_Store
 Thumbs.db
 
-# Package lock files
-package-lock.json
+# Temporary files
+*.tmp
+*.temp
 
-# TypeScript cache
-*.tsbuildinfo
+# Python artifacts (if any Python in project)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
 
-# Vite cache
-.vite/
+# Compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
 
-# ESLint cache
-.eslintcache
-
-# Prettier cache
-.prettiercache
-
-# Rollup cache
-.rolldown/
-
+# Compressed archives
+*.zip
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.gz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
 ```
