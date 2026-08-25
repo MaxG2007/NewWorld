@@ -217,6 +217,44 @@ export class WorldGenerator {
   }
 
   /**
+   * Генерирует тайлы для чанка (используется ChunkManager)
+   */
+  generateChunkTiles(startX: number, startY: number, size: number): Array<{
+    x: number;
+    y: number;
+    height: number;
+    biome: import('../biomes/BiomeConfig').BiomeType;
+    temperature: number;
+    humidity: number;
+    resources: string[];
+  }> {
+    const tiles = [];
+    
+    for (let y = 0; y < size; y++) {
+      for (let x = 0; x < size; x++) {
+        const globalX = startX + x;
+        const globalY = startY + y;
+        const elevation = this.getElevation(globalX, globalY);
+        const biome = this.getBiome(globalX, globalY, elevation) as import('../biomes/BiomeConfig').BiomeType;
+        const climate = this.getClimate(globalX, globalY);
+        const resources = this.getResources(globalX, globalY, biome);
+        
+        tiles.push({
+          x,
+          y,
+          height: elevation,
+          biome,
+          temperature: climate.temperature,
+          humidity: climate.humidity,
+          resources,
+        });
+      }
+    }
+    
+    return tiles;
+  }
+
+  /**
    * Получает данные для любой координаты без генерации всего мира
    * Ключевая функция для Definition of Done
    */

@@ -1,4 +1,21 @@
 /**
+ * Типы биомов
+ */
+export type BiomeType = 
+  | 'ocean'
+  | 'coast'
+  | 'plains'
+  | 'forest'
+  | 'jungle'
+  | 'desert'
+  | 'savanna'
+  | 'tundra'
+  | 'mountain'
+  | 'swamp'
+  | 'taiga'
+  | 'underground';
+
+/**
  * Конфигурация биома
  * Каждый биом содержит полную информацию о своей экосистеме
  */
