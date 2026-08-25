@@ -1,6 +1,7 @@
 import { DeterministicRNG } from '../../core/random/DeterministicRNG';
 import { RandomStreams } from '../../core/random/RandomStreams';
 import { WorldSeed, Climate } from '../../data/WorldSchemas';
+import { BiomeDatabase } from '../biomes/BiomeDatabase';
 
 /**
  * Координата в мире
@@ -77,35 +78,11 @@ export class WorldGenerator {
    * Определяет биом для координаты на основе высоты и климата
    */
   getBiome(x: number, y: number, elevation: number): string {
-    const rng = this.streams.biome.derive(x * 1000 + y);
-    
     const temperature = this.getTemperature(x, y);
     const humidity = this.getHumidity(x, y);
     
-    // Определение биома по температуре и влажности
-    if (elevation > 0.8) {
-      return 'mountain';
-    }
-    
-    if (temperature < 0.2) {
-      return humidity > 0.5 ? 'tundra' : 'desert';
-    }
-    
-    if (humidity > 0.7) {
-      if (temperature > 0.7) return 'jungle';
-      return 'forest';
-    }
-    
-    if (humidity < 0.3) {
-      if (temperature > 0.6) return 'desert';
-      return 'savanna';
-    }
-    
-    if (temperature > 0.5 && humidity > 0.4) {
-      return 'plains';
-    }
-    
-    return rng.nextArrayElement(['forest', 'plains', 'taiga']);
+    // Используем базу данных биомов для определения типа биома
+    return BiomeDatabase.determineBiome(elevation, temperature, humidity);
   }
 
   /**
@@ -158,26 +135,15 @@ export class WorldGenerator {
   getResources(x: number, y: number, biome: string): string[] {
     const rng = this.streams.resource.derive(x * 3000 + y * 4);
     
-    const resourcePools: Record<string, string[]> = {
-      forest: ['wood', 'herbs', 'game', 'mushrooms'],
-      plains: ['grain', 'livestock', 'wool'],
-      mountain: ['ore', 'gems', 'stone', 'metal'],
-      desert: ['salt', 'oil', 'glass_sand'],
-      tundra: ['fur', 'ice', 'fish'],
-      jungle: ['exotic_wood', 'spices', 'rare_herbs'],
-      savanna: ['ivory', 'gold', 'cattle'],
-      taiga: ['pine_wood', 'fur', 'berries'],
-      swamp: ['peat', 'reeds', 'fish'],
-      coast: ['fish', 'salt', 'pearls'],
-      underground: ['deep_ore', 'crystals', 'ancient_artifacts'],
-    };
+    // Получаем ресурсы из конфигурации биома
+    const biomeConfig = BiomeDatabase.getBiome(biome);
+    const biomeResources = biomeConfig ? biomeConfig.resources : ['grain', 'livestock'];
     
-    const pool = resourcePools[biome] || resourcePools.plains;
     const resourceCount = rng.nextInt(1, 3);
     const resources: string[] = [];
     
     for (let i = 0; i < resourceCount; i++) {
-      const resource = rng.nextArrayElement(pool);
+      const resource = rng.nextArrayElement(biomeResources);
       if (!resources.includes(resource)) {
         resources.push(resource);
       }
