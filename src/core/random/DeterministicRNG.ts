@@ -45,10 +45,13 @@ export class DeterministicRNG {
   }
 
   /**
-   * Генерирует случайное число с плавающей точкой в диапазоне [min, max)
+   * Генерирует случайное число с плавающей точкой в диапазоне [0, 1)
    */
-  nextFloat(min: number, max: number): number {
-    return this.next() * (max - min) + min;
+  nextFloat(min?: number, max?: number): number {
+    if (min !== undefined && max !== undefined) {
+      return this.next() * (max - min) + min;
+    }
+    return this.next();
   }
 
   /**
