@@ -90,3 +90,51 @@ export interface Skill extends BaseEntity {
   description: string;
   prerequisites: EntityRef<'Skill'>[];
 }
+
+/**
+ * Член семьи
+ */
+export interface FamilyMember {
+  id: string;
+  firstName: string;
+  lastName: string;
+  birthYear: number;
+  deathYear: number | null;
+  gender: 'male' | 'female';
+  role: 'founder' | 'heir' | 'descendant' | 'spouse';
+  spouseId: string | null;
+  parentIds: string[];
+  childIds: string[];
+  profession: string;
+  isAlive: boolean;
+}
+
+/**
+ * Генеалогическое древо
+ */
+export interface GenealogyTree {
+  rootId: string;
+  generations: number;
+  totalMembers: number;
+  livingMembers: number;
+  maxAgeReached: number;
+}
+
+/**
+ * Семья/Династия
+ */
+export interface Family extends BaseEntity {
+  name: string;
+  surname: string;
+  cultureId: string;
+  isRoyal: boolean;
+  foundingYear: number;
+  members: FamilyMember[];
+  genealogyTree: GenealogyTree;
+  influence: number; // 0-1
+  treasury: number;
+  reputation: number; // -100 to 100
+  alliances: string[]; // IDs других семей
+  rivals: string[]; // IDs враждебных семей
+  coatOfArms: string;
+}
