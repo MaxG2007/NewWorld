@@ -59,7 +59,7 @@ export interface NPC extends BaseEntity {
   age: number;
   race: EntityRef<'Race'>;
   culture: EntityRef<'Culture'>;
-  family: EntityRef<'Family'> | null;
+  family: EntityRef<'NPCFamily'> | null;
   profession: EntityRef<'Profession'> | null;
   location: EntityRef<'Settlement' | 'Chunk'>;
   health: number; // 0-100
@@ -81,9 +81,9 @@ export interface NPC extends BaseEntity {
 }
 
 /**
- * Семья
+ * Семья (переименовано для избежания конфликта)
  */
-export interface Family extends BaseEntity {
+export interface NPCFamily extends BaseEntity {
   name: string;
   members: EntityRef<'NPC'>[];
   parents: EntityRef<'NPC'>[];
@@ -105,6 +105,6 @@ export interface Genealogy extends BaseEntity {
   root: EntityRef<'NPC'>;
   ancestors: EntityRef<'NPC'>[];
   descendants: EntityRef<'NPC'>[];
-  marriages: EntityRef<'Family'>[];
+  marriages: EntityRef<'NPCFamily'>[];
   familyTree: Record<string, EntityRef<'NPC'>[]>; // parentId -> children
 }

@@ -14,7 +14,7 @@ import {
   Culture,
   Religion,
   NPC,
-  Family,
+  NPCFamily as Family,
   Profession,
   Item,
   Recipe,

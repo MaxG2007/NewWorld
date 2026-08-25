@@ -142,7 +142,7 @@ export interface World extends BaseEntity {
   cultures: EntityRef<'Culture'>[];
   religions: EntityRef<'Religion'>[];
   npcs: EntityRef<'NPC'>[];
-  families: EntityRef<'Family'>[];
+  families: EntityRef<'NPCFamily'>[];
   items: EntityRef<'Item'>[];
   events: EntityRef<'Event'>[];
   dungeons: EntityRef<'Dungeon'>[];
