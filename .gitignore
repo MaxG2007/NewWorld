@@ -7,46 +7,38 @@ dist/
 build/
 target/
 
-# Temporary files
-*.tmp
-*.log
+# Cache directories
+.vite/
+.vitest/
+__pycache__/
+*.pyc
 
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
 # Editors
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+# Logs
+*.log
 
-# Compiled files
-*.o
-*.obj
-*.so
-*.dll
-*.exe
+# Temp files
+*.tmp
 
 # Coverage
 coverage/
 htmlcov/
 .coverage
 
-# Gradle
-.gradle/
-
-# MyPy
-.mypy_cache/
-
-# Pytest
-.pytest_cache/
-
-# Vite/Vitest
-node_modules/.vite/
+# Package manager caches
+.npm/
+.yarn/
+.pnpm/
+.bazel/
+.buck/
 ```
