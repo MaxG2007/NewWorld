@@ -1,4 +1,5 @@
 import { BaseEntity, EntityRef } from './BaseTypes';
+import { CraftingCategory, RecipeSource } from '../simulation/crafting/CraftingTypes';
 
 /**
  * Предмет
@@ -32,14 +33,16 @@ export interface Item extends BaseEntity {
   rarity: 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary';
   stackable: boolean;
   maxStack: number;
+  craftingCategory?: CraftingCategory; // категория крафта если предмет создан через крафт
+  recipeUsed?: EntityRef<'CraftingRecipe'>; // рецепт использованный для создания
 }
 
 /**
- * Рецепт крафта
+ * Рецепт крафта (дублируется для совместимости)
  */
 export interface Recipe extends BaseEntity {
   name: string;
-  category: string;
+  category: CraftingCategory;
   result: EntityRef<'Item'>;
   quantity: number;
   ingredients: Array<{
@@ -51,7 +54,7 @@ export interface Recipe extends BaseEntity {
   minSkillLevel: number;
   time: number; // время крафта в минутах
   isDiscovered: boolean;
-  source: 'book' | 'teacher' | 'experiment' | 'family' | 'regional';
+  source: RecipeSource;
   region: EntityRef<'Culture'> | null; // региональные рецепты
 }
 
