@@ -7,33 +7,29 @@ dist/
 build/
 target/
 
-# Logs
+# Temporary files
+*.tmp
 *.log
 
 # Environment
 .env
 .env.local
-*.env.*
+.env.*
 
 # Editors
 .vscode/
 .idea/
 
-# Temp files
-*.tmp
-*.swp
-
-# Python
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# Compiled
+# Compiled files
 *.o
 *.obj
 *.so
-*.a
 *.dll
 *.exe
 
@@ -42,6 +38,15 @@ coverage/
 htmlcov/
 .coverage
 
-# Vite/Vitest cache
+# Gradle
+.gradle/
+
+# MyPy
+.mypy_cache/
+
+# Pytest
+.pytest_cache/
+
+# Vite/Vitest
 node_modules/.vite/
 ```
