@@ -436,7 +436,7 @@ describe('Data Schemas Serialization', () => {
     const recipe: Recipe = {
       ...createBaseEntity(),
       name: 'Iron Sword Recipe',
-      category: 'weaponsmithing',
+      category: 'weaponcrafting',
       result: { type: 'Item', id: 'item-1' },
       quantity: 1,
       ingredients: [{ item: { type: 'Item', id: 'iron-1' }, quantity: 5 }],
