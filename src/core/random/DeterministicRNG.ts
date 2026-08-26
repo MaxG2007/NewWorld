@@ -86,4 +86,18 @@ export class DeterministicRNG {
   derive(offset: number): DeterministicRNG {
     return new DeterministicRNG(this.seed + offset);
   }
+
+  /**
+   * Получить текущее состояние (для сохранения)
+   */
+  getState(): number {
+    return this.seed;
+  }
+
+  /**
+   * Восстановить состояние
+   */
+  setState(seed: number): void {
+    this.seed = seed >>> 0;
+  }
 }
