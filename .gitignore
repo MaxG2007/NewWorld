@@ -1,1 +1,56 @@
-(src/simulation/growth/AgeStages.ts, src/simulation/growth/ChildhoodEvents.ts, src/simulation/growth/GrowthSimulator.ts, src/simulation/growth/GrowthSystem.test.ts, src/simulation/growth/SkillDevelopment.ts, src/simulation/growth/index.ts)
+```
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+build/
+target/
+
+# Compiled files
+*.pyc
+__pycache__/
+*.class
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# Logs
+*.log
+
+# Test coverage
+coverage/
+htmlcov/
+.coverage
+
+# Package managers
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Cache directories
+.cache/
+.mypy_cache/
+.pytest_cache/
+.vite/
+```
