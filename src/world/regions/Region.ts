@@ -4,14 +4,26 @@
 
 import { Chunk } from '../chunks/Chunk';
 
+export interface RegionData {
+  id: string;
+  name: string;
+  x: number;
+  y: number;
+  size: number;
+}
+
 export class Region {
+  public readonly id: string;
+  public name: string;
   public readonly x: number;
   public readonly y: number;
   public readonly size: number;
   
   private chunks: Map<string, Chunk> = new Map();
 
-  constructor(x: number, y: number, regionSize: number = 4) {
+  constructor(name: string, x: number, y: number, regionSize: number = 4) {
+    this.id = `region_${x}_${y}`;
+    this.name = name;
     this.x = x;
     this.y = y;
     this.size = regionSize; // Количество чанков в регионе (regionSize x regionSize)
@@ -119,6 +131,7 @@ export class Region {
    */
   public static deserialize(data: Record<string, unknown>): Region {
     const region = new Region(
+      (data.name as string) || `Region_${data.x}_${data.y}`,
       data.x as number,
       data.y as number,
       data.size as number

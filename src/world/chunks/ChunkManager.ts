@@ -67,7 +67,7 @@ export class ChunkManager {
     let region = this.regions.get(key);
     
     if (!region) {
-      region = new Region(regionX, regionY, regionSize);
+      region = new Region(`Region_${regionX}_${regionY}`, regionX, regionY, regionSize);
       this.regions.set(key, region);
     }
     
