@@ -10,6 +10,7 @@ interface SettlementGenConfig {
   seed: number;
   x: number;
   y: number;
+  regionId: string;
   hasPort: boolean;
   isCapital: boolean;
 }
@@ -36,7 +37,8 @@ export class SettlementGenerator {
       config.name,
       config.type,
       config.x,
-      config.y
+      config.y,
+      config.regionId
     );
 
     // Определить доступные районы на основе типа и особенностей

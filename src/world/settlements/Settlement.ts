@@ -43,6 +43,7 @@ export interface SettlementData {
   name: string;
   type: 'village' | 'town' | 'city' | 'capital';
   coordinates: { x: number; y: number };
+  regionId: string;
   population: number;
   districts: DistrictData[];
   resources: ResourceInfo[];
@@ -98,6 +99,7 @@ export class Settlement {
   public name: string;
   public type: 'village' | 'town' | 'city' | 'capital';
   public coordinates: { x: number; y: number };
+  public regionId: string;
   public population: number;
   public districts: Map<string, District>;
   public resources: Map<string, ResourceInfo>;
@@ -114,12 +116,14 @@ export class Settlement {
     name: string,
     type: 'village' | 'town' | 'city' | 'capital',
     x: number,
-    y: number
+    y: number,
+    regionId: string
   ) {
     this.id = `settlement_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     this.name = name;
     this.type = type;
     this.coordinates = { x, y };
+    this.regionId = regionId;
     this.population = 0;
     this.districts = new Map();
     this.resources = new Map();
@@ -293,7 +297,13 @@ export class Settlement {
    * Десериализация из JSON
    */
   static fromJSON(data: SettlementData): Settlement {
-    const settlement = new Settlement(data.name, data.type, data.coordinates.x, data.coordinates.y);
+    const settlement = new Settlement(
+      data.name, 
+      data.type, 
+      data.coordinates.x, 
+      data.coordinates.y,
+      data.regionId || `region_${data.coordinates.x}_${data.coordinates.y}`
+    );
     
     settlement.population = data.population;
     data.districts.forEach(d => {
