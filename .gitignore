@@ -3,42 +3,10 @@
 node_modules/
 
 # Build artifacts
-dist/
-build/
-target/
-
-# Cache directories
-.vite/
-.vitest/
-__pycache__/
-*.pyc
+node_modules/.vite/
 
 # Environment
 .env
 .env.local
 *.env.*
-
-# Editors
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Logs
-*.log
-
-# Temp files
-*.tmp
-
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
-# Package manager caches
-.npm/
-.yarn/
-.pnpm/
-.bazel/
-.buck/
 ```
