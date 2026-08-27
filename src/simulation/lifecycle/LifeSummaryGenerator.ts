@@ -6,7 +6,7 @@ import {
   DiscoveredDungeon,
   ChronicleEntry,
   DeathCause
-} from '../types/lifecycle';
+} from '../../types/lifecycle';
 
 /**
  * Генератор посмертного отчета о жизни персонажа
@@ -90,7 +90,7 @@ export class LifeSummaryGenerator {
     
     // Записи в хронике (макс 25 баллов)
     const chronicleScore = chronicleEntries.reduce((sum, e) => {
-      const impactValues = { minor: 2, notable: 5, significant: 10, legendary: 20 };
+      const impactValues: Record<string, number> = { minor: 2, notable: 5, significant: 10, legendary: 20 };
       return sum + (impactValues[e.impact] || 0);
     }, 0);
     score += Math.min(25, chronicleScore);
@@ -151,7 +151,7 @@ export class LifeSummaryGenerator {
     // Достижения
     if (summary.achievements.length > 0) {
       lines.push('🏆 ДОСТИЖЕНИЯ');
-      summary.achievements.forEach(a => {
+      summary.achievements.forEach((a: any) => {
         lines.push(`  • ${a.title}: ${a.description}`);
       });
       lines.push('');
@@ -161,7 +161,7 @@ export class LifeSummaryGenerator {
     const closeRelationships = summary.relationships.filter(r => r.strength > 50);
     if (closeRelationships.length > 0) {
       lines.push('❤️ БЛИЗКИЕ ОТНОШЕНИЯ');
-      closeRelationships.forEach(r => {
+      closeRelationships.forEach((r: any) => {
         lines.push(`  • ${r.characterName} (${r.relationshipType}): ${r.summary}`);
       });
       lines.push('');
@@ -171,7 +171,7 @@ export class LifeSummaryGenerator {
     const existingObjects = summary.createdObjects.filter(o => o.stillExists);
     if (existingObjects.length > 0) {
       lines.push('🏗️ СОЗДАННЫЕ ОБЪЕКТЫ');
-      existingObjects.forEach(o => {
+      existingObjects.forEach((o: any) => {
         lines.push(`  • ${o.name} (${o.type}): ${o.description}`);
       });
       lines.push('');
@@ -180,7 +180,7 @@ export class LifeSummaryGenerator {
     // Открытые подземелья
     if (summary.discoveredDungeons.length > 0) {
       lines.push('🗺️ ОТКРЫТЫЕ ПОДЗЕМЕЛЬЯ');
-      summary.discoveredDungeons.forEach(d => {
+      summary.discoveredDungeons.forEach((d: any) => {
         const marker = d.isPrimaryDiscoverer ? '⭐' : '📍';
         lines.push(`  ${marker} ${d.name} (глубина: ${d.depth})`);
       });
@@ -190,7 +190,7 @@ export class LifeSummaryGenerator {
     // Записи в хронике
     if (summary.chronicleEntries.length > 0) {
       lines.push('📜 ЗАПИСИ В ХРОНИКЕ');
-      summary.chronicleEntries.forEach(e => {
+      summary.chronicleEntries.forEach((e: any) => {
         lines.push(`  [${e.impact.toUpperCase()}] ${e.title}`);
       });
       lines.push('');
