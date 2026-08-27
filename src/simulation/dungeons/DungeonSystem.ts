@@ -19,6 +19,8 @@ import {
   DungeonExplorerProfile
 } from './DungeonSchemas';
 
+export { DungeonSystem };
+
 /**
  * Система генерации и управления подземельями
  * 

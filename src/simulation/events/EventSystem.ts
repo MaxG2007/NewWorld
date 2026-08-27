@@ -18,9 +18,9 @@ import {
   RegionalEventType,
   GlobalEventType
 } from './EventTypes';
-import { Settlement } from '../../world/settlements/Settlement';
-import { Region } from '../../world/regions/Region';
-import { NPC } from '../entities/npc/NPC';
+// import { Settlement } from '../../world/settlements/Settlement';
+// import { Region } from '../../world/regions/Region';
+// import { NPC } from '../entities/npc/NPC';
 
 export class EventSystem implements EventManager {
   private events: Map<string, GameEvent> = new Map();
