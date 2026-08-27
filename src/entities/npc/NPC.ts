@@ -132,6 +132,7 @@ export interface NPCData {
   legalStatus: LegalStatus;
   reputation: Map<string, ReputationEntry>;
   
+  religiousAffiliation?: import('../../simulation/religion/ReligionSystem').ReligiousAffiliation;
   // Мета-данные
   version: string;
   createdAt: number;
