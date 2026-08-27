@@ -3,10 +3,36 @@
 node_modules/
 
 # Build artifacts
-node_modules/.vite/
+dist/
+build/
+target/
 
-# Environment
+# Cache directories
+.cache/
+.vite/
+
+# Environment files
 .env
 .env.local
-*.env.*
+.env.*
+
+# Logs
+*.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# Python artifacts (if any Python in project)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Test coverage
+coverage/
+.nyc_output/
 ```
