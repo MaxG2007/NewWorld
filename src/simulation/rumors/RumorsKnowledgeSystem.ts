@@ -428,7 +428,7 @@ export class RumorsKnowledgeSystem {
     };
     
     // Применяем искажение к версии
-    rumor.version = this.applyDistortionToVersion(rumor.version, distortion, context);
+    rumor.version = this.applyDistortionToVersion(rumor.version, distortion);
     rumor.distortions.push(distortion);
   }
   
