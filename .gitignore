@@ -1,1 +1,5 @@
-Nothing should be ignored based on the provided file changes, as they only include TypeScript source files (.ts) and no build artifacts, dependencies, or temporary files.
+(src/data/DungeonSchemas.ts, src/simulation/dungeons/DungeonSystem.ts, src/simulation/dungeons/index.ts)
+
+(src/data/index.ts, src/simulation/construction/index.ts, src/simulation/rumors/RumorsKnowledgeSystem.ts)
+
+(empty)
