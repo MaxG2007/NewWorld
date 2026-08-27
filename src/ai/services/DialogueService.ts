@@ -1,5 +1,5 @@
 import { AIManager } from '../managers/AIManager';
-import { AIRequest, DialogueContext, RumorContext, DescriptionContext } from '../types/AITypes';
+import { AIRequest, DialogueContext } from '../types/AITypes';
 
 /**
  * Сервис для генерации вариативных диалогов

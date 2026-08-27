@@ -1,2 +1,3 @@
-export { DungeonSystem } from './DungeonSystem';
+import { DungeonSystem } from './DungeonSystem';
+export { DungeonSystem };
 export default DungeonSystem;

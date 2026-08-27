@@ -15,7 +15,7 @@ export class AIManager {
     resolve: (response: AIResponse) => void;
     reject: (error: Error) => void;
   }> = [];
-  private processing: boolean = false;
+  private _processing: boolean = false;
   private initialized: boolean = false;
 
   constructor(config: AIAdapterConfig) {
