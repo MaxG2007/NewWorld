@@ -1,5 +1,15 @@
-(src/data/DungeonSchemas.ts, src/simulation/dungeons/DungeonSystem.ts, src/simulation/dungeons/index.ts)
+```
+# Dependencies
+node_modules/
 
-(src/data/index.ts, src/simulation/construction/index.ts, src/simulation/rumors/RumorsKnowledgeSystem.ts)
+# Logs and temp files
+*.log
 
-(empty)
+# Environment
+.env
+.env.local
+.env.*
+
+# Editors
+.vscode/
+```
