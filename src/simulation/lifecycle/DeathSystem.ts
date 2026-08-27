@@ -1,14 +1,14 @@
 import {
   DeathCause,
-  DeathCauseType,
-  LifeSummary,
-  LifeAchievement,
-  LifeRelationship,
-  CreatedObject,
-  DiscoveredDungeon,
-  ChronicleEntry,
-  MetaLegacy
-} from '../types/lifecycle';
+  type DeathCauseType,
+  type LifeSummary,
+  type LifeAchievement,
+  type LifeRelationship,
+  type CreatedObject,
+  type DiscoveredDungeon,
+  type ChronicleEntry,
+  type MetaLegacy
+} from '../../types/lifecycle';
 
 /**
  * Система обработки смерти персонажей
@@ -134,7 +134,7 @@ export class DeathSystem {
    * Определить тип смерти на основе контекста
    */
   determineDeathCause(
-    character: any,
+    _character: any,
     context: {
       inCombat?: boolean;
       hasDisease?: string;
@@ -182,7 +182,7 @@ export class DeathSystem {
    * Проверить, должен ли персонаж умереть
    */
   shouldDie(
-    character: any,
+    _character: any,
     state: {
       health: number;
       hunger: number;

@@ -2,7 +2,7 @@ import {
   RebirthData,
   MetaLegacy,
   LifecycleConfig
-} from '../types/lifecycle';
+} from '../../types/lifecycle';
 
 /**
  * Система возрождения - создание нового персонажа после смерти
@@ -249,7 +249,7 @@ export class RebirthSystem {
   /**
    * Проверить возможность воскрешения (редкое событие)
    */
-  canResurrect(character: any, context: {
+  canResurrect(_character: any, context: {
     hasResurrectionItem?: boolean;
     nearbyTemple?: boolean;
     deityFavor?: number;
@@ -281,7 +281,7 @@ export class RebirthSystem {
     lines.push('');
     
     lines.push('✨ Черты характера:');
-    rebirthData.randomTraits.forEach(trait => {
+    rebirthData.randomTraits.forEach((trait: string) => {
       lines.push(`  • ${this.formatTrait(trait)}`);
     });
     lines.push('');
@@ -292,7 +292,7 @@ export class RebirthSystem {
     
     if (rebirthData.startingBonuses.length > 0) {
       lines.push('🎁 Наследие предков (бонусы):');
-      rebirthData.startingBonuses.forEach(bonus => {
+      rebirthData.startingBonuses.forEach((bonus: string) => {
         lines.push(`  • ${this.formatBonus(bonus)}`);
       });
       lines.push('');
@@ -300,7 +300,7 @@ export class RebirthSystem {
     
     if (rebirthData.startingMaluses.length > 0) {
       lines.push('⚠️ Наследие предков (бремя):');
-      rebirthData.startingMaluses.forEach(malus => {
+      rebirthData.startingMaluses.forEach((malus: string) => {
         lines.push(`  • ${this.formatMalus(malus)}`);
       });
       lines.push('');
