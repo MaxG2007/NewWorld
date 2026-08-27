@@ -1,2 +1,3 @@
-export { ConstructionSystem } from './ConstructionSystem';
+import { ConstructionSystem } from './ConstructionSystem';
+export { ConstructionSystem };
 export default ConstructionSystem;

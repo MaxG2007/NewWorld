@@ -9,7 +9,7 @@
  * Game Core → AI Manager → [Local AI Adapter | Fallback Adapter]
  */
 
-export { AIAdapter, AIAdapterConfig, AIRequest, AIResponse, AIStats, AITaskType } from './types/AITypes';
+export type { AIAdapter, AIAdapterConfig, AIRequest, AIResponse, AIStats, AITaskType } from './types/AITypes';
 
 export { BaseAIAdapter } from './adapters/BaseAIAdapter';
 export { LocalHTTPAIAdapter } from './adapters/LocalHTTPAIAdapter';

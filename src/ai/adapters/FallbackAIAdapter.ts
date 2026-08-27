@@ -161,7 +161,7 @@ export class FallbackAIAdapter extends BaseAIAdapter {
     return description;
   }
 
-  private generatePortraitDescription(context: any): string {
+  private generatePortraitDescription(_context: any): string {
     const features = [
       'светлые волосы', 'тёмные волосы', 'рыжие волосы',
       'голубые глаза', 'карие глаза', 'зелёные глаза',
@@ -173,7 +173,7 @@ export class FallbackAIAdapter extends BaseAIAdapter {
     return `Человек с ${selected}.`;
   }
 
-  private generateGeneric(prompt?: string): string {
+  private generateGeneric(_prompt?: string): string {
     const responses = [
       'Интересный вопрос.',
       'Это требует размышлений.',

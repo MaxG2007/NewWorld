@@ -17,9 +17,7 @@ import {
   DungeonGenerationConfig,
   DungeonDiscoveryEvent,
   DungeonExplorerProfile
-} from './DungeonSchemas';
-
-export { DungeonSystem };
+} from '../../data/DungeonSchemas';
 
 /**
  * Система генерации и управления подземельями

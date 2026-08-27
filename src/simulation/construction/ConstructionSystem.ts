@@ -13,8 +13,6 @@ import {
   BlockOrientation
 } from '../../data/ConstructionSchemas';
 
-export { ConstructionSystem };
-
 /**
  * Система строительства и размещения объектов в мире
  * 
